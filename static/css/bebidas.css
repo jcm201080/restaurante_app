@@ -1,0 +1,16 @@
+.lista-bebidas {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-bebidas li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(255,255,255,0.2);
+}
+
+.bebidas h2 {
+  margin-top: 30px;
+  color: #f39c12;
+}

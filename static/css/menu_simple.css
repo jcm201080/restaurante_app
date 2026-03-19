@@ -1,0 +1,36 @@
+.menu-simple {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.menu-simple h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.menu-simple h2 {
+  margin-top: 30px;
+  border-bottom: 2px solid #f39c12;
+  padding-bottom: 5px;
+}
+
+.menu-simple ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-simple li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(255,255,255,0.2);
+}
+
+.menu-simple .nombre {
+  font-weight: bold;
+}
+
+.menu-simple .precio {
+  color: #f39c12;
+}

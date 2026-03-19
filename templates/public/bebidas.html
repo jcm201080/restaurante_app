@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Bebidas{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bebidas.css', v=timestamp) }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container bebidas">
+
+<h1>🍹 Bebidas</h1>
+
+{% for tipo, items in categorias.items() %}
+    <h2>{{ tipo }}</h2>
+
+    <ul class="lista-bebidas">
+        {% for b in items %}
+            <li>
+                <span>{{ b.nombre }}</span>
+                <span>{{ b.precio }}€</span>
+            </li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+
+</div>
+
+{% endblock %}

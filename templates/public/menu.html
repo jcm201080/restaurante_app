@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}Carta{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css', v=timestamp) }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>🍽️ Nuestra Carta</h1>
+
+    {% if plato_dia %}
+    <div class="plato-dia">
+        <h2>🍽️ Plato del día</h2>
+
+        <div class="card-destacado">
+            <h3>{{ plato_dia.nombre }}</h3>
+            <p>{{ plato_dia.descripcion }}</p>
+            <span class="precio">{{ plato_dia.precio }}€</span>
+        </div>
+    </div>
+    {% endif %}
+
+    <h2>⭐ Sugerencias</h2>
+    <div class="grid">
+        {% for p in sugerencias %}
+        <div class="card-producto">
+            <div>
+                <h3>{{ p.nombre }}</h3>
+                <span class="precio">{{ p.precio }}€</span>
+            </div>
+
+            <div class="badges">
+                <span class="badge estrella">⭐</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h2>🔥 Fuera de carta</h2>
+    <div class="grid">
+        {% for p in fuera_carta %}
+        <div class="card-producto">
+            <div>
+                <h3>{{ p.nombre }}</h3>
+                <span class="precio">{{ p.precio }}€</span>
+            </div>
+
+            <div class="badges">
+                <span class="badge fuego">🔥</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <hr>
+
+    {% for categoria, items in categorias.items() %}
+    <h2 class="categoria-titulo">{{ categoria }}</h2>
+
+    <div class="grid">
+        {% for p in items %}
+        <div class="card-producto">
+
+            {% if p.imagen %}
+                <img src="{{ url_for('static', filename='uploads/' + p.imagen) }}" class="img-producto">
+            {% else %}
+                <img src="{{ url_for('static', filename='img/default.jpg') }}" class="img-producto">
+            {% endif %}
+
+            <div class="info">
+                <h3>{{ p.nombre }}</h3>
+
+                {% if p.descripcion %}
+                <p class="desc">{{ p.descripcion }}</p>
+                {% endif %}
+
+                <span class="precio">{{ p.precio }}€</span>
+            </div>
+
+            <div class="badges">
+                {% if p.tipo %}
+                <span class="badge tipo {{ p.tipo }}">
+                    {% if p.tipo == 'tapa' %}🟢{% endif %}
+                    {% if p.tipo == 'media' %}🟡{% endif %}
+                    {% if p.tipo == 'racion' %}🔴{% endif %}
+                    {% if p.tipo == 'plato' %}🍽️{% endif %}
+                    {{ p.tipo }}
+                </span>
+                {% endif %}
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+    <button onclick="recomendar()" class="ia-btn">
+        Asistente del chef 👨‍🍳
+    </button>
+
+</div>
+
+<script>
+    function recomendar() {
+        fetch('/ia/recomendar', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ mensaje: "recomiéndame algo" })
+        })
+            .then(res => res.json())
+            .then(data => alert(data.respuesta))
+    }
+</script>
+
+{% endblock %}

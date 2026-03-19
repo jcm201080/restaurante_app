@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Carta{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/menu_simple.css', v=timestamp) }}">
+{% endblock %}
+
+{% block content %}
+<div class="menu-simple">
+
+<h1>📋 Carta</h1>
+
+{% for categoria, items in categorias.items() %}
+    <h2>{{ categoria }}</h2>
+
+    <ul>
+        {% for p in items %}
+            <li>
+                <span class="nombre">
+                    {{ p.nombre }}
+                    {% if p.tipo %} ({{ p.tipo }}){% endif %}
+                </span>
+
+                <span class="precio">
+                    {{ p.precio }}€
+                </span>
+            </li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+
+</div>
+{% endblock %}

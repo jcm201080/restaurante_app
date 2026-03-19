@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Restaurante{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+    <!-- 🔝 HEADER -->
+    <header class="header">
+        <div class="nav">
+            <h2 class="logo">🍔 Restaurante</h2>
+
+            <nav>
+                <a href="/">Inicio</a>
+                <a href="/menu">Carta</a>
+                <a href="/menu_simple">Menu Simple</a>
+                <!-- <a href="/bebidas">Bebidas</a> -->
+                <a href="#">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 📄 CONTENIDO -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- 🔻 FOOTER -->
+    <footer class="footer">
+        <p>© 2026 Restaurante Demo</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+body {
+    font-family: Arial;
+    background: #111;
+    color: #fff;
+    margin: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: #1c1c1c;
+    padding: 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.destacado {
+    background: #ff9800;
+    color: black;
+}
+
+.card span {
+    font-weight: bold;
+}
+
+.ia-btn {
+    display: block;
+    margin: 30px auto;
+    padding: 15px;
+    background: #00c853;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(45deg, #111, #222);
+}
+
+.hero h1 {
+    font-size: 40px;
+}
+
+.hero p {
+    margin: 10px 0 20px;
+}
+
+.btn {
+    padding: 15px 25px;
+    background: #ff9800;
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.seccion {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.danger {
+    background: #d32f2f;
+}
+
+.alert {
+    background: #2e7d32;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+/* CARD BASE */
+.card-producto {
+    background: #1c1c1c;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.card-producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+/* TEXTO */
+.card-producto h3 {
+    margin: 0;
+}
+
+.desc {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.precio {
+    color: #f39c12;
+    font-weight: bold;
+}
+
+/* BADGES */
+.badges {
+    display: flex;
+    gap: 5px;
+}
+
+.badge {
+    font-size: 0.7rem;
+    padding: 5px 8px;
+    border-radius: 10px;
+}
+
+.badge.tipo {
+    background: #333;
+}
+
+.badge.estrella {
+    background: gold;
+    color: black;
+}
+
+.badge.fuego {
+    background: #e74c3c;
+}
+
+/* PLATO DEL DÍA */
+.card-destacado {
+    background: linear-gradient(135deg, #f39c12, #ff6a00);
+    padding: 25px;
+    border-radius: 20px;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* CATEGORÍA */
+.categoria-titulo {
+    margin-top: 40px;
+    border-left: 4px solid #f39c12;
+    padding-left: 10px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 3fr 0.8fr 1.3fr 1.3fr auto;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.form-row input,
+.form-row select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #ece5e5;
+  color: rgb(24, 23, 23);
+}
+.form-row input[name="precio"] {
+  max-width: 100px;
+}
+
+/* CHECKBOXES */
+.toggles {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* BOTONES */
+.acciones {
+  display: flex;
+  gap: 8px;
+}
+
+.acciones .btn {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .acciones {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+
+.card img {
+  margin-top: 10px;
+  border-radius: 8px;
+}

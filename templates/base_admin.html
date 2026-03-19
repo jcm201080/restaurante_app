@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Admin{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+    <!-- 🔧 HEADER ADMIN -->
+    <header class="header">
+        <div class="nav">
+            <h2 class="logo">⚙️ Admin</h2>
+
+            <nav>
+                <a href="/admin/productos">Productos</a>
+                <a href="/">Ver web</a>                
+                <a href="/admin/logout">Salir</a>
+            </nav>
+        </div>
+    </header>
+    <main>       
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert">
+            {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+        {% block content %}{% endblock %}
+        
+    </main>
+
+</body>
+</html>

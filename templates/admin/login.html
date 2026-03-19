@@ -1,0 +1,22 @@
+{% extends "base_admin.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>🔐 Acceso administrador</h1>
+
+    <form method="POST" class="card">
+
+        <input type="text" name="username" placeholder="Usuario" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+
+        <button type="submit" class="btn">Entrar</button>
+
+    </form>
+
+</div>
+
+{% endblock %}

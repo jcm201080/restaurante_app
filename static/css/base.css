@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: #fff;
+}
+
+/* HEADER */
+.header {
+    background: #111;
+    padding: 15px 20px;
+    border-bottom: 1px solid #333;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.nav a:hover {
+    color: #ff9800;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    border-top: 1px solid #333;
+    margin-top: 40px;
+}
+
+
+
+/*Moviles*/
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+.toggles {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.toggles label {
+    font-size: 20px;
+}
+
+form.card {
+    margin-bottom: 15px;
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.filtro-card {
+    background: #1e1e1e;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.filtro-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filtro-form label {
+    font-weight: bold;
+    color: #ff9800;
+}
+
+.filtro-form select {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+
+.acciones {
+    display: flex;
+    justify-content: center;   /* 👈 centrados */
+    align-items: center;
+    gap: 12px;                 /* 👈 espacio entre botones */
+    margin-top: 15px;
+    
+    height: 45px;    
+}
+
+.acciones form {
+    margin: 0;
+}
+
+.acciones .btn {
+    min-width: 130px;
+}
+
+/* separación extra visual */
+.acciones .danger {
+    margin-left: 10px;
+}

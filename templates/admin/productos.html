@@ -93,6 +93,9 @@
             <img src="{{ url_for('static', filename='uploads/' + p.imagen) }}" width="80">
         {% endif %}
 
+        <!-- cambiar imagen -->
+        <input type="file" name="imagen">
+
         <div class="toggles">
             <label>⭐ <input type="checkbox" name="destacado" {% if p.destacado %}checked{% endif %}></label>
             <label>🍽️ <input type="checkbox" name="plato_dia" {% if p.plato_dia %}checked{% endif %}></label>

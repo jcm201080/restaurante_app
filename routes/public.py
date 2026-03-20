@@ -1,7 +1,9 @@
 # routes/public.py
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template,request, flash, redirect
 from models.producto import Producto
 import time
+import smtplib
+from email.mime.text import MIMEText
 
 public_bp = Blueprint('public', __name__)
 @public_bp.route("/")
@@ -76,3 +78,53 @@ def bebidas():
         categorias=categorias,
         timestamp=int(time.time())
     )
+
+
+
+
+
+@public_bp.route("/contacto", methods=["GET", "POST"])
+def contacto():
+    if request.method == "POST":
+        nombre = request.form.get("nombre")
+        email = request.form.get("email")
+        telefono = request.form.get("telefono")
+        fecha = request.form.get("fecha")
+        hora = request.form.get("hora")
+        personas = request.form.get("personas")
+        mensaje = request.form.get("mensaje")
+
+        contenido = f"""
+        Nueva reserva/contacto:
+
+        Nombre: {nombre}
+        Email: {email}
+        Teléfono: {telefono}
+        Fecha: {fecha}
+        Hora: {hora}
+        Personas: {personas}
+
+        Mensaje:
+        {mensaje}
+        """
+
+        try:
+            msg = MIMEText(contenido)
+            msg["Subject"] = "Nueva reserva web"
+            msg["From"] = "tu_email@gmail.com"
+            msg["To"] = "jmc201080@gmail.com"
+
+            server = smtplib.SMTP("smtp.gmail.com", 587)
+            server.starttls()
+            server.login("tu_email@gmail.com", "tu_password")
+            server.send_message(msg)
+            server.quit()
+
+            flash("✅ Mensaje enviado correctamente")
+        except Exception as e:
+            print(e)
+            flash("❌ Error al enviar")
+
+        return redirect("/contacto")
+
+    return render_template("public/contacto.html")

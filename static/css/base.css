@@ -6,10 +6,35 @@ body {
 }
 
 /* HEADER */
+
 .header {
-    background: #111;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: linear-gradient(135deg, #111 70%, #1a0000 100%);
     padding: 15px 20px;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(6px);
+}
+.header {
+    background:
+        linear-gradient(135deg, rgba(255,60,0,0.08) 25%, transparent 25%) -10px 0,
+        linear-gradient(225deg, rgba(255,60,0,0.08) 25%, transparent 25%) -10px 0,
+        linear-gradient(315deg, rgba(255,60,0,0.08) 25%, transparent 25%),
+        linear-gradient(45deg, rgba(255,60,0,0.08) 25%, #111 25%);
+    background-size: 20px 20px;
+}
+
+/* Línea roja sutil debajo */
+.header::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(to right, transparent, #ff3c00, transparent);
+    margin-top: 10px;
 }
 
 .nav {
@@ -142,4 +167,70 @@ form.card {
     .nav a {
         font-size: 0.9rem;
     }
+}
+
+
+.nav a.activo {
+    color: #ff9800;
+    font-weight: bold;
+    border-bottom: 2px solid #ff9800;
+}
+
+.footer a {
+    color: #ff9800;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* Wasap*/
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    background: #25D366;
+    color: white;
+
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+    text-decoration: none;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+
+    z-index: 999;
+    transition: 0.3s;
+}
+
+/* hover */
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+
+/* 🔥 efecto pulso */
+.whatsapp-btn::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(37, 211, 102, 0.5);
+    animation: pulse 1.5s infinite;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    70% { transform: scale(1.6); opacity: 0; }
+    100% { opacity: 0; }
 }

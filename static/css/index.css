@@ -93,15 +93,32 @@
 }
 
 
-/* ANIMACIÓN SUAVE */
-.card-producto {
-  transition: 0.3s;
+
+/* RECOMENDADOS */
+.recomendados {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: auto;
 }
 
-.card-producto:hover {
-  transform: translateY(-8px);
+.grid-recomendados {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+
+    justify-content: flex-start; /* 👈 CLAVE */
+}
+.img-producto {
+    border-radius: 12px;
+    transition: 0.3s;
 }
 
+.color-h2{
+    color: rgb(224, 216, 105);
+}
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -118,3 +135,4 @@
     font-size: 40px;
   }
 }
+

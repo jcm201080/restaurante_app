@@ -65,8 +65,10 @@
         {% for p in items %}
         <div class="card-producto">
 
-            {% if p.imagen %}
-                <img src="{{ url_for('static', filename='uploads/' + p.imagen) }}" class="img-producto">
+            {% if p.imagen and p.imagen != "" %}
+                <img src="{{ url_for('static', filename='uploads/' + p.imagen) }}" 
+                    onerror="this.src='{{ url_for('static', filename='img/default.jpg') }}'"
+                    class="img-producto">
             {% else %}
                 <img src="{{ url_for('static', filename='img/default.jpg') }}" class="img-producto">
             {% endif %}

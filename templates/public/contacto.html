@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contacto.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="contacto-container">
+
+    <h1>📍 Contacto & Reservas</h1>
+
+    <div class="contacto-grid">
+
+        <!-- 🧾 INFO -->
+        <div class="contacto-info">
+            <h2>🍽️ Restaurante Jesús Castaño</h2>
+            <p>📍 Santo Domingo Savio 4</p>
+            <p>📞 635 487 063</p>
+            <p>✉️ jmc201080@gmail.com</p>
+
+            <p class="horario">
+                🕒 Lunes - Domingo: 13:00 - 23:00
+            </p>
+        </div>
+
+        <!-- 🗺️ MAPA -->
+        <div class="mapa">
+            <iframe 
+                src="https://www.google.com/maps?q=Santo+Domingo+Savio+4&output=embed"
+                width="100%" 
+                height="300" 
+                style="border:0;" 
+                allowfullscreen="">
+            </iframe>
+        </div>
+
+    </div>
+
+    <!-- 📝 FORMULARIO -->
+    <div class="formulario">
+        <h2>📅 Reserva o consulta</h2>
+
+        <form method="POST" action="/contacto">
+
+            <input class="card-ancho" type="text" name="nombre" placeholder="Nombre" required>
+            <input class="card-ancho" type="email" name="email" placeholder="Email" required>
+            <input class="card-ancho" type="tel" name="telefono" placeholder="Teléfono">
+
+            <input class="card-ancho" type="date" name="fecha">
+            <input class="card-ancho" type="time" name="hora">
+            <input class="card-ancho" type="number" name="personas" placeholder="Nº personas">
+
+            <textarea class="card-ancho"name="mensaje" placeholder="Mensaje o petición especial"></textarea>
+
+            <button class="card-ancho" type="submit">Enviar</button>
+
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

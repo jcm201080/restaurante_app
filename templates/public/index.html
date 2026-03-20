@@ -43,23 +43,39 @@
 </section>
 
 
+
 <!-- SUGERENCIAS -->
-<section class="seccion">
+<section class="recomendados">
 
-    <h2>⭐ Recomendados</h2>
+    <h2 class="color-h2"> Recomendados</h2>
 
-    <div class="grid">
-        {% for p in sugerencias %}
-        <div class="card-producto">
+    <div class="grid-recomendados">
 
-            {% if p.imagen %}
-                <img src="{{ url_for('static', filename='uploads/' + p.imagen) }}" class="img-producto">
-            {% endif %}
+        {% if sugerencias %}
+            {% for p in sugerencias %}
+            <div class="card-producto">
 
-            <h3>{{ p.nombre }}</h3>
+                {% if p.imagen %}
+                    <img src="{{ url_for('static', filename='uploads/' + p.imagen) }}" class="img-producto">
+                {% else %}
+                    <img src="{{ url_for('static', filename='img/default.jpg') }}" class="img-producto">
+                {% endif %}
 
-        </div>
-        {% endfor %}
+                <div class="info">
+                    <h3>{{ p.nombre }}</h3>
+                </div>
+
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="card-producto">
+                <img src="{{ url_for('static', filename='img/default.jpg') }}" class="img-producto">
+                <div class="info">
+                    <h3>Próximamente 🍽️</h3>
+                </div>
+            </div>
+        {% endif %}
+
     </div>
 
 </section>

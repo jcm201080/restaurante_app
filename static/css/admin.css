@@ -22,6 +22,8 @@ h1, h2 {
     margin-bottom: 20px;
 }
 
+
+
 .card {
     background: #1c1c1c;
     padding: 15px;
@@ -101,6 +103,21 @@ h1, h2 {
     gap: 15px;
 }
 
+.card-ancho {
+    width: 95%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+.hr-class {
+    
+    width: 95%;
+    max-width: 900px;
+    margin: 30px auto;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #ff9800, transparent);
+    border: none;
+    margin: 40px auto;
+}
 /* CARD BASE */
 .card-producto {
     background: #1c1c1c;
@@ -183,6 +200,10 @@ h1, h2 {
   align-items: center;
   width: 100%;
   margin-bottom: 15px;
+}
+
+.input_productos{
+    width: 90%;
 }
 
 .form-row input,

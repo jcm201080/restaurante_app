@@ -116,3 +116,30 @@ form.card {
 .acciones .danger {
     margin-left: 10px;
 }
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 17px; /* 🔥 más legible en móvil */
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1.05rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+
+    .nav a {
+        font-size: 0.9rem;
+    }
+}

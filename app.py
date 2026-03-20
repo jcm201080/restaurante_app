@@ -1,11 +1,23 @@
-from flask import Flask
+from flask import Flask, redirect, url_for, flash
 from config import Config
 from extensions import db, login_manager
 import os
 
+
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
+
+    
+    app.secret_key = "clave_super_secreta"
+
+    app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024  # 5MB
+    @app.errorhandler(413)
+    def too_large(e):
+        if request.content_type.startswith("multipart/form-data"):
+            flash("❌ La imagen supera el tamaño permitido (5MB)")
+            return redirect(url_for("admin.productos"))
+        return {"error": "File too large"}, 413
 
     db.init_app(app)
     #login_manager.init_app(app)
@@ -31,7 +43,6 @@ def create_app():
     return app
 
 app = create_app()
-app.secret_key = "clave_super_secreta"
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -212,3 +212,65 @@ h1, h2 {
   border-radius: 10px;
   margin-bottom: 10px;
 }
+
+/* 📱 MOBILE FIRST (CLAVE) */
+.grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* 📱 Ajustes generales */
+body {
+    font-size: 16px;
+}
+
+/* 📱 Cards más limpias */
+.card-producto {
+    border-radius: 12px;
+}
+
+/* 📱 Imagen mejor ajustada */
+.img-producto {
+    height: 120px;
+}
+
+/* 📱 Texto más legible */
+.card-producto h3 {
+    font-size: 0.95rem;
+}
+
+.desc {
+    font-size: 0.75rem;
+}
+
+.precio {
+    font-size: 1rem;
+}
+
+/* 📱 Badges más visibles */
+.badge {
+    font-size: 0.65rem;
+    padding: 4px 6px;
+}
+
+/* 📱 Espaciado */
+.info {
+    padding: 8px 10px;
+}
+
+/* 💻 TABLET */
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .img-producto {
+        height: 150px;
+    }
+}
+
+/* 🖥️ DESKTOP */
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

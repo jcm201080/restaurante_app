@@ -345,3 +345,100 @@ El proyecto ya ha pasado de:
 👉 a “producto vendible con potencial real”
 
 ---
+
+
+# 🍔 Restaurante App – Roadmap
+
+## 🚧 Estado actual
+
+Aplicación web funcional con:
+
+* Panel admin de productos
+* Subida de imágenes
+* Carta visual moderna
+* Despliegue en VPS con Nginx + Gunicorn
+* Subdominio activo
+
+---
+
+## 🔥 Tareas pendientes (prioridad alta)
+
+### 🗄️ Backend
+
+* [ ] Migrar base de datos a PostgreSQL
+* [ ] Revisar modelo de datos (optimizar categorías / tipos)
+* [ ] Evitar duplicados en seed
+
+---
+
+### 🎨 Frontend / UX
+
+* [ ] Crear página de contacto moderna
+* [ ] Mejorar footer:
+
+  * enlaces útiles
+  * info del restaurante
+  * año dinámico
+* [ ] Mejorar header:
+
+  * resaltar página activa
+  * navegación más clara
+* [ ] Separar bebidas en página independiente
+
+---
+
+### 🤖 IA
+
+* [ ] Mejorar asistente:
+
+  * recomendaciones reales
+  * preguntas tipo:
+
+    * "quiero algo ligero"
+    * "voy con niños"
+    * "sin gluten"
+* [ ] UI más atractiva para el asistente
+
+---
+
+### 🖼️ Imágenes
+
+* [ ] Añadir imágenes reales a productos clave
+* [ ] Optimizar tamaños (rendimiento)
+* [ ] Placeholder elegante para productos sin imagen
+
+---
+
+### 🚀 Producción
+
+* [ ] Migrar a PostgreSQL
+* [ ] Logs y control de errores
+* [ ] Optimizar Gunicorn (workers)
+* [ ] Revisar seguridad básica
+
+---
+
+## 💡 Ideas futuras
+
+* [ ] Sistema de reservas
+* [ ] Pedido online
+* [ ] Panel cliente
+* [ ] Multi-restaurante (SaaS)
+
+---
+
+## 🧠 Notas
+
+* No modificar código directamente en VPS (usar Git)
+* Mantener permisos correctos (uploads y DB)
+* Testear siempre en local antes de subir
+
+---
+
+## 🚀 Objetivo
+
+Convertir esto en:
+👉 Producto real para restaurantes
+👉 Posible SaaS escalable
+
+---

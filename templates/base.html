@@ -23,6 +23,9 @@
                 <a href="/menu" class="{% if '/menu' in request.path %}activo{% endif %}">Carta</a>
                 <a href="/menu_simple" class="{% if '/menu_simple' in request.path %}activo{% endif %}">Menu Simple</a>
                 <a href="/contacto" class="{% if '/contacto' in request.path %}activo{% endif %}">Contacto</a>
+
+                <!-- SOLO DEMO -->
+                <a href="/admin/productos">Admin</a>
             </nav>
         </div>
     </header>
@@ -36,8 +39,6 @@
     <footer class="footer">
         <div class="footer-content">
             <p>🍽️ Restaurante Jesús Castaño</p>
-            <p>📍 Sevilla | ☎️ 600 000 000</p>
-
             <p>
                 🌐 <a href="https://jesuscmweb.com/" target="_blank">Web</a> |
                 💻 <a href="https://github.com/jcm201080" target="_blank">GitHub</a>
@@ -51,7 +52,7 @@
         document.getElementById("year").textContent = new Date().getFullYear();
     </script>
 
-    <a href="https://wa.me/34635487063?text=Hola%2C%20quiero%20hacer%20una%20reserva.%20Somos%20X%20personas%20para%20el%20día%20X%20😊"
+    <a href="https://wa.me/34635487063?text=Hola%2C%20quiero%20hacer%20una%20reserva.%20😊"
         class="whatsapp-btn"
         target="_blank">
             💬

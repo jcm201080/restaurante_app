@@ -234,3 +234,33 @@ form.card {
     70% { transform: scale(1.6); opacity: 0; }
     100% { opacity: 0; }
 }
+
+
+
+/* login */
+
+.ancho-login {
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 🔥 centra horizontal */
+    gap: 15px;
+}
+
+
+.demo-login {
+    margin-top: 20px;
+    padding: 15px;
+    background: #222;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.demo-login strong {
+    color: #ff9800;
+}

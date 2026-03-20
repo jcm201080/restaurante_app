@@ -8,15 +8,30 @@
 
     <h1>🔐 Acceso administrador</h1>
 
-    <form method="POST" class="card">
+    <form  class="ancho-login" method="POST" class="card">
 
-        <input type="text" name="username" placeholder="Usuario" required>
-        <input type="password" name="password" placeholder="Contraseña" required>
+        <input  class="ancho-login" type="text" name="username" placeholder="Usuario" required>
+        <input  class="ancho-login" type="password" name="password" placeholder="Contraseña" required>
 
-        <button type="submit" class="btn">Entrar</button>
+        <button  class="ancho-login" type="submit" class="btn">Entrar</button>
 
     </form>
 
 </div>
+<div class="demo-login">
+    <p>🔑 Acceso de prueba:</p>
+    <p><strong>Usuario:</strong> admin</p>
+    <p><strong>Contraseña:</strong> 1234</p>
+    <button onclick="autocompletar()">Usar demo</button>
+</div>
+
+
+
+<script>
+function autocompletar() {
+    document.querySelector('[name="username"]').value = "admin";
+    document.querySelector('[name="password"]').value = "1234";
+}
+</script>
 
 {% endblock %}

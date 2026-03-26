@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta name="description" content="Restaurante con cocina tradicional y moderna en Sevilla">
-    <meta charset="UTF-8">    
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Restaurante{% endblock %}</title>
 
@@ -20,9 +21,12 @@
 
             <nav>
                 <a href="/" class="{% if request.path == '/' %}activo{% endif %}">Inicio</a>
-                <a href="/menu" class="{% if '/menu' in request.path %}activo{% endif %}">Carta</a>
-                <a href="/menu_simple" class="{% if '/menu_simple' in request.path %}activo{% endif %}">Menu Simple</a>
-                <a href="/contacto" class="{% if '/contacto' in request.path %}activo{% endif %}">Contacto</a>
+
+                <a href="/menu" class="{% if request.path == '/menu' %}activo{% endif %}">Carta</a>
+
+                <a href="/menu_simple" class="{% if request.path == '/menu_simple' %}activo{% endif %}">Menu Simple</a>
+
+                <a href="/contacto" class="{% if request.path == '/contacto' %}activo{% endif %}">Contacto</a>
 
                 <!-- SOLO DEMO -->
                 <a href="/admin/productos">Admin</a>
@@ -52,10 +56,10 @@
         document.getElementById("year").textContent = new Date().getFullYear();
     </script>
 
-    <a href="https://wa.me/34635487063?text=Hola%2C%20quiero%20hacer%20una%20reserva.%20😊"
-        class="whatsapp-btn"
+    <a href="https://wa.me/34635487063?text=Hola%2C%20quiero%20hacer%20una%20reserva.%20😊" class="whatsapp-btn"
         target="_blank">
-            💬
+        💬
     </a>
 </body>
+
 </html>

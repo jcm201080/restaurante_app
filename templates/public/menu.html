@@ -12,22 +12,34 @@
 
     <h1>🍽️ Nuestra Carta</h1>
 
-    {% if plato_dia %}
-    <div class="plato-dia">
-        <h2>🍽️ Plato del día</h2>
+    <h2>🍽️ Plato del día</h2>
+    <div class="card-destacado">
 
-        <div class="card-destacado">
-            <h3>{{ plato_dia.nombre }}</h3>
-            <p>{{ plato_dia.descripcion }}</p>
-            <span class="precio">{{ plato_dia.precio }}€</span>
-        </div>
+        {% if plato_dia.imagen %}
+        <img src="{{ url_for('static', filename='uploads/' + plato_dia.imagen) }}"
+            onerror="this.src='{{ url_for('static', filename='img/default.jpg') }}'" class="img-producto">
+        {% else %}
+        <img src="{{ url_for('static', filename='img/default.jpg') }}" class="img-producto">
+        {% endif %}
+
+        <h3>{{ plato_dia.nombre }}</h3>
+        <p>{{ plato_dia.descripcion or "" }}</p>
+        <span class="precio">{{ plato_dia.precio }}€</span>
     </div>
-    {% endif %}
 
     <h2>⭐ Sugerencias</h2>
     <div class="grid">
         {% for p in sugerencias %}
+
         <div class="card-producto">
+
+            {% if p.imagen %}
+            <img src="{{ url_for('static', filename='uploads/' + p.imagen) }}"
+                onerror="this.src='{{ url_for('static', filename='img/default.jpg') }}" class="img-producto">
+            {% else %}
+            <img src="{{ url_for('static', filename='img/default.jpg') }}" class="img-producto">
+            {% endif %}
+
             <div>
                 <h3>{{ p.nombre }}</h3>
                 <span class="precio">{{ p.precio }}€</span>
@@ -36,7 +48,9 @@
             <div class="badges">
                 <span class="badge estrella">⭐</span>
             </div>
+
         </div>
+
         {% endfor %}
     </div>
 
@@ -44,14 +58,28 @@
     <div class="grid">
         {% for p in fuera_carta %}
         <div class="card-producto">
-            <div>
+
+            {% if p.imagen %}
+            <img src="{{ url_for('static', filename='uploads/' + p.imagen) }}"
+                onerror="this.src='{{ url_for('static', filename='img/default.jpg') }}'" class="img-producto">
+            {% else %}
+            <img src="{{ url_for('static', filename='img/default.jpg') }}" class="img-producto">
+            {% endif %}
+
+            <div class="info">
                 <h3>{{ p.nombre }}</h3>
+
+                {% if p.descripcion %}
+                <p class="desc">{{ p.descripcion }}</p>
+                {% endif %}
+
                 <span class="precio">{{ p.precio }}€</span>
             </div>
 
             <div class="badges">
                 <span class="badge fuego">🔥</span>
             </div>
+
         </div>
         {% endfor %}
     </div>
@@ -66,11 +94,10 @@
         <div class="card-producto">
 
             {% if p.imagen and p.imagen != "" %}
-                <img src="{{ url_for('static', filename='uploads/' + p.imagen) }}" 
-                    onerror="this.src='{{ url_for('static', filename='img/default.jpg') }}'"
-                    class="img-producto">
+            <img src="{{ url_for('static', filename='uploads/' + p.imagen) }}"
+                onerror="this.src='{{ url_for('static', filename='img/default.jpg') }}'" class="img-producto">
             {% else %}
-                <img src="{{ url_for('static', filename='img/default.jpg') }}" class="img-producto">
+            <img src="{{ url_for('static', filename='img/default.jpg') }}" class="img-producto">
             {% endif %}
 
             <div class="info">

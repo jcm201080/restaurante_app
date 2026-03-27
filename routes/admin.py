@@ -16,7 +16,7 @@ import uuid
 
 admin_bp = Blueprint('admin', __name__)
 
-CATEGORIAS = ["Entrantes", "Raciones", "Bocadillos", "Postres", "Bebidas"]
+CATEGORIAS = ["Entrantes","Hamburguesas", "Raciones", "Bocadillos", "Postres", "Bebidas"]
 TIPOS = ["tapa", "media", "racion", "plato"]
 
 UPLOAD_FOLDER = "static/uploads"

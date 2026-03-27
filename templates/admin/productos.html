@@ -20,10 +20,9 @@
 
             <select class="input_productos" name="categoria" onchange="this.form.submit()">
                 <option value="">Todas</option>
-                <option value="Entrantes">Entrantes</option>
-                <option value="Raciones">Raciones</option>
-                <option value="Bocadillos">Bocadillos</option>
-                <option value="Postres">Postres</option>
+                {% for c in categorias %}
+                <option value="{{ c }}">{{ c }}</option>
+                {% endfor %}
             </select>
 
         </form>
@@ -41,18 +40,17 @@
         <!-- 📂 CATEGORÍA -->
         <select name="categoria" required>
             <option value="">Categoría</option>
-            <option value="Entrantes">Entrantes</option>
-            <option value="Raciones">Raciones</option>
-            <option value="Bocadillos">Bocadillos</option>
-            <option value="Postres">Postres</option>
+            {% for c in categorias %}
+            <option value="{{ c }}">{{ c }}</option>
+            {% endfor %}
         </select>
 
         <!-- 🍽️ TIPO -->
         <select name="tipo" required>
             <option value="">Tipo</option>
-            <option value="tapa">Tapa</option>
-            <option value="media">Media ración</option>
-            <option value="racion">Ración</option>
+            {% for t in tipos %}
+            <option value="{{ t }}">{{ t|capitalize }}</option>
+            {% endfor %}
         </select>
         <input type="file" name="imagen">
 
@@ -87,10 +85,10 @@
             </option>
             {% endfor %}
         </select>
-        
-        
+
+
         {% if p.imagen %}
-            <img src="{{ url_for('static', filename='uploads/' + p.imagen) }}" width="80">
+        <img src="{{ url_for('static', filename='uploads/' + p.imagen) }}" width="80">
         {% endif %}
 
         <!-- cambiar imagen -->

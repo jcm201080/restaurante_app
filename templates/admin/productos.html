@@ -11,6 +11,11 @@
 <div class="container">
 
     <h1>⚙️ Gestión de productos</h1>
+    <form method="POST" action="/admin/reset_disponibles">
+        <button class="btn" onclick="return confirm('⚠️ Esto marcará todos los productos como disponibles. ¿Continuar?')">
+            🔄 Reset productos visibilidad
+        </button>
+    </form>
 
     <div class="filtro-card card-ancho">
 
@@ -98,6 +103,7 @@
             <label>⭐ <input type="checkbox" name="destacado" {% if p.destacado %}checked{% endif %}></label>
             <label>🍽️ <input type="checkbox" name="plato_dia" {% if p.plato_dia %}checked{% endif %}></label>
             <label>🚫 <input type="checkbox" name="fuera_carta" {% if p.fuera_carta %}checked{% endif %}></label>
+            <label>👁️ <input type="checkbox" name="disponible" {% if p.disponible %}checked{% endif %}></label>
         </div>
 
         <!-- 🔥 BOTONES JUNTOS -->

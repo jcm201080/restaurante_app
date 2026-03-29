@@ -10,7 +10,7 @@ public_bp = Blueprint('public', __name__)
 def index():
     return render_template(
         "public/index.html",
-        sugerencias=Producto.query.filter_by(destacado=True).all(),
+        sugerencias=Producto.query.filter_by(destacado=True, disponible=True).all(),
         timestamp=int(time.time())
     )
 

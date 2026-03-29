@@ -149,7 +149,8 @@ def add_producto():
             precio=precio,
             categoria=categoria,
             tipo=tipo,
-            imagen=filename # Guardamos el nombre del archivo optimizado o None
+            imagen=filename, # Guardamos el nombre del archivo optimizado o None
+            disponible=True  # por defecto visible
         )
         db.session.add(nuevo)
         db.session.commit()
@@ -223,6 +224,7 @@ def update_producto(id):
     # 3. Flags y lógica de negocio
     producto.destacado = "destacado" in request.form
     producto.fuera_carta = "fuera_carta" in request.form
+    producto.disponible = "disponible" in request.form
 
     # 🧠 Solo un plato del día
     if "plato_dia" in request.form:
@@ -243,5 +245,20 @@ def update_producto(id):
         db.session.rollback()
         flash("❌ Error crítico al actualizar.")
         print(f"Error: {e}")
+
+    return redirect(url_for("admin.productos"))
+
+
+@admin_bp.route("/reset_disponibles", methods=["POST"])
+@login_required
+def reset_disponibles():
+    try:
+        Producto.query.update({Producto.disponible: True})
+        db.session.commit()
+        flash("🔄 Todos los productos están disponibles otra vez")
+    except Exception as e:
+        db.session.rollback()
+        flash("❌ Error al resetear productos")
+        print(e)
 
     return redirect(url_for("admin.productos"))

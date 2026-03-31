@@ -133,6 +133,11 @@
 
 </div>
 
+<div id="modal-img" class="modal-img">
+    <span class="cerrar">&times;</span>
+    <img id="img-grande">
+</div>
+
 <script>
     function recomendar() {
         fetch('/ia/recomendar', {
@@ -143,6 +148,22 @@
             .then(res => res.json())
             .then(data => alert(data.respuesta))
     }
+</script>
+<script>
+    const modal = document.getElementById("modal-img");
+    const imgGrande = document.getElementById("img-grande");
+    const cerrar = document.querySelector(".cerrar");
+
+    document.querySelectorAll(".img-producto").forEach(img => {
+        img.addEventListener("click", function () {
+            modal.style.display = "block";
+            imgGrande.src = this.src;
+        });
+    });
+
+    cerrar.onclick = () => modal.style.display = "none";
+
+    modal.onclick = () => modal.style.display = "none";
 </script>
 
 {% endblock %}

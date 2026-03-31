@@ -233,6 +233,7 @@ body {
     height: 120px;
 }
 
+
 /* 📱 Texto más legible */
 .card-producto h3 {
     font-size: 0.95rem;
@@ -257,6 +258,10 @@ body {
     padding: 8px 10px;
 }
 
+
+
+
+
 /* 💻 TABLET */
 @media (min-width: 768px) {
     .grid {
@@ -275,3 +280,56 @@ body {
     }
 }
 
+
+
+/*Ampliar img*/
+.modal-img {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    inset: 0;
+    background-color: rgba(0,0,0,0.95);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 150px 20px 20px; /* 🔥 espacio arriba para el header */
+}
+
+/* IMAGEN GRANDE Y CENTRADA */
+.modal-img img {
+    width: 100%;
+    max-width: 500px;   /* 🔥 clave para móvil */
+    max-height: 80vh;   /* 🔥 evita que se salga */
+    object-fit: contain;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+}
+.cerrar {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.modal-img img {
+    animation: zoomIn 0.25s ease;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@media (max-width: 600px) {
+    .modal-img img {
+        max-width: 95%;
+    }
+}

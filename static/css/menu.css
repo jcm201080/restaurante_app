@@ -290,7 +290,7 @@ body {
     inset: 0;
     background-color: rgba(0,0,0,0.95);
 
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     padding: 150px 20px 20px; /* 🔥 espacio arriba para el header */
@@ -305,6 +305,7 @@ body {
     border-radius: 16px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.8);
 }
+
 .cerrar {
     position: absolute;
     top: 20px;
